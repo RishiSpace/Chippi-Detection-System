@@ -13,7 +13,8 @@ test_dataset_path = os.path.join(path, 'Test')
 # Define parameters
 input_shape = (350, 350, 3)  # Adjust the input shape based on your images
 batch_size = 32
-epochs = 40
+epochs = 4
+steps_per_epoch = 48
 
 # Create a CNN model
 model = keras.Sequential([
@@ -55,7 +56,7 @@ test_generator = test_datagen.flow_from_directory(
 )
 
 # Train the model
-model.fit(train_generator, epochs=epochs, validation_data=test_generator)
+model.fit(train_generator, epochs=epochs, steps_per_epoch=steps_per_epoch, validation_data=test_generator)
 
 
 # Saving the Model
